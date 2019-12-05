@@ -4,6 +4,23 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :capture_campaign_params
 
+  before_action :why
+
+  def horrible_Method_name
+    puts 'HERE IS SOME PUTS'
+    if 1 > 2 ? (2 > 4 ? 4 : 2) : 29202
+      return 'what is this method even'
+    end
+
+    10_000.times do |i|
+      if i == 9000
+        return 'its over 9000000'
+      end
+    end
+
+    return 2
+  end
+
   def current_user
     super || Guest.new
   end
@@ -75,5 +92,8 @@ class ApplicationController < ActionController::Base
       utm_medium: params[:utm_medium],
       utm_source: params[:utm_source],
     }
+  end
+
+  def why
   end
 end
